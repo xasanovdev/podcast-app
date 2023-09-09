@@ -1,9 +1,10 @@
 import React from 'react';
-import { Button } from '../../components/button/button';
+import { Button } from '../../../components/button/button';
+import { SponsorPropsType } from '../../../types/sponsorType';
 
-const Sponsor = ({ sponsor }) => {
+const Sponsor: React.FC<{ sponsor: SponsorPropsType }> = ({ sponsor }) => {
   return (
-    <div className="w-full h-[650px] flex flex-col gap-5">
+    <div key={sponsor.id} className="w-full h-[650px] flex flex-col gap-5">
       <div
         className={`px-10 py-[60px] flex flex-col rounded-xl flex-1 justify-between z-10 ${
           sponsor.popular
@@ -46,8 +47,8 @@ const Sponsor = ({ sponsor }) => {
       >
         <p className="text-grey-color text-sm ">What's included:</p>
         <ul className="flex flex-col gap-[10px] pt-5">
-          {sponsor.included.map((include) => (
-            <li>{include}</li>
+          {sponsor.included.map((include,index) => (
+            <li key={index}>{include}</li>
           ))}
         </ul>
       </div>

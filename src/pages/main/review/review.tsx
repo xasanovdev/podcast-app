@@ -1,10 +1,10 @@
 import React from 'react';
-import { ReviewPropsType } from '../../types/reviewType';
+import { ReviewPropsType } from '../../../types/reviewType';
 
-const Review: React.FC<ReviewPropsType> = ( {review} ) => {
+const Review: React.FC<{ review: ReviewPropsType }> = ({ review }) => {
   return (
     <>
-      <div className='w-[400px] sm:w-[580px] relative bg-white p-5 sm:p-10 h-full flex flex-col justify-between'>
+      <div className="w-[400px] sm:w-[580px] relative bg-white p-5 sm:p-10 h-full flex flex-col justify-between">
         <svg
           width="42"
           height="34"
@@ -17,10 +17,10 @@ const Review: React.FC<ReviewPropsType> = ( {review} ) => {
             fill="#CD4631"
           />
         </svg>
-        <p className='pt-12 text-[16px] sm:text-[23px]'>{review.title}</p>
-        <div className='flex items-center justify-start gap-3 pt-12'>
-          <img className='w-12 h-12 rounded-full' src={review.imgUrl} alt="" />
-          <span className='flex items-center gap-2'>
+        <p className="pt-12 text-[16px] sm:text-[23px]">{review.title}</p>
+        <div className="flex items-center justify-start gap-3 pt-12">
+          <img className="w-12 h-12 rounded-full" src={review.imgUrl} alt="" />
+          <span className="flex items-center gap-2">
             <span>{review.name}</span>
             <img src={review.socialsUrl} />
           </span>

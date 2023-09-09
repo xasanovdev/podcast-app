@@ -1,12 +1,17 @@
-import React from 'react';
-import Title from '../../components/Title/title';
-import data from '../../../db';
+import Title from '../../../components/Title/title';
+import data from '../../../../db';
 import Episode from './episode';
-import { Button } from '../../components/button/button';
+import { Button } from '../../../components/button/button';
+import React from 'react';
 
 const Episodes = () => {
+  const [browseAll, setBrowseAll] = React.useState(true);
+
   return (
-    <div className="w-full relative bg-champagne-color py-[140px]">
+    <div
+      id="recent-episodes"
+      className="w-full relative bg-champagne-color py-[140px]"
+    >
       <div className="container relative">
         <div className="relative">
           <div className="absolute -top-32 -right-16 sm:right-0 lg:right-24 xl:right-36 2xl:right-64">
@@ -37,16 +42,33 @@ const Episodes = () => {
           />
         </div>
 
-        <div className="pt-[100px] grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="pt-[100px] grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-5">
           {data.episodes.map((episode) => {
-            return <Episode key={episode.id} episode={episode} />;
+            return browseAll ? (
+              episode.id <= 4  ? (
+                <Episode key={episode.id} episode={episode} />
+              ) : (
+                ''
+              )
+            ) : (
+              <Episode key={episode.id} episode={episode} />
+            );
           })}
         </div>
         <div className="w-full text-center mt-[100px]">
-          <Button
-            text="BROWSE ALL EPISODES"
-            classes="bg-black text-white hover:bg-transparent hover:text-black"
-          />
+          <button onClick={() => setBrowseAll(!browseAll)}>
+            {browseAll ? (
+              <Button
+                text="BROWSE ALL"
+                classes="bg-black text-white hover:bg-transparent hover:text-black"
+              />
+            ) : (
+              <Button
+                text="Close ALL"
+                classes="bg-black text-white hover:bg-transparent hover:text-black"
+              />
+            )}
+          </button>
         </div>
       </div>
     </div>

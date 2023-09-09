@@ -1,32 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
-import Title from '../../components/Title/title';
+import Title from '../../../components/Title/title';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
-import axios, { AxiosResponse } from 'axios';
 import Review from './review';
-import { ReviewPropsType } from '../../types/reviewType';
-import data from '../../../db';
+import data from '../../../../db';
 
 const Reviews: React.FC = () => {
-  // const [reviews, setReviews] = useState<ReviewPropsType | undefined>([]);
-
-  // const getReviews = async () => {
-  //   try {
-  //     const response: AxiosResponse<ReviewPropsType> =
-  //       await axios.get<ReviewPropsType>('http://localhost:3000/reviews');
-  //     setReviews(response.data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  // useEffect(() => {
-  //   getReviews();
-  // }, []);
-
-  // console.log(reviews);
-
   return (
-    <div className="w-full bg-[#EDF3F7]">
+    <div id="testimonials" className="w-full bg-[#EDF3F7]">
       <div className="py-[140px] container relative">
         <div className="absolute left-36 top-16">
           <svg
@@ -91,7 +71,7 @@ const Reviews: React.FC = () => {
           >
             {data
               ? data.reviews.map((review) => (
-                  <SwiperSlide>
+                  <SwiperSlide key={review.id}>
                     <Review key={review.id} review={review} />
                   </SwiperSlide>
                 ))

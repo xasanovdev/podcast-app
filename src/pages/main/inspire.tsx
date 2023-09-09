@@ -1,4 +1,3 @@
-import React from 'react'
 import Title from '../../components/Title/title';
 
 const Inspire = () => {
@@ -6,7 +5,7 @@ const Inspire = () => {
     <>
       <div className="container w-full relative py-[140px] text-center flex justify-center items-center flex-col">
         <div className="max-w-[805px] ">
-          <Title text="Talk. Listen. Get inspired by every minute of it." />
+          <Title text="Talk. Listen. Get inspired by every minute of it." subtitle=''/>
         </div>
         <div className="w-full max-w-[1160px] ">
           <div className="w-full  relative flex items-center justify-between flex-col sm:flex-row gap-4">

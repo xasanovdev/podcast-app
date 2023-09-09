@@ -2,10 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-html,body {
+html,
+body {
   font-family: 'Montserrat Alternates', sans-serif;
   height: 100%;
   width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 #root {
@@ -16,10 +19,13 @@ html,body {
 :root {
   --header-bg-color: rgba(247, 237, 232, 1);
   --text-orange-color: rgba(205, 70, 49, 1);
-  --text-grey-color: Grey;
+  --text-grey-color: #4d4d4d;
 }
 
-.episode:hover .title> * {
+.episode:hover .title > * {
+  color: var(--text-orange-color);
+}
+.article:hover .title > * {
   color: var(--text-orange-color);
 }
 
@@ -31,11 +37,79 @@ html,body {
   width: 100%;
   height: 100%;
   z-index: 0;
-  background-color: #81ADC8;
+  background-color: #81adc8;
   border-radius: 12px;
 }
 .episode1:hover .episode__content {
-  left: 12px; 
+  left: 12px;
   top: 12px;
   transition: all 0.1s ease-in-out;
+}
+.article__content {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color: black;
+  border-radius: 12px;
+}
+.article1:hover .article__content {
+  left: 12px;
+  top: 12px;
+  transition: all 0.1s ease-in-out;
+}
+.member__content {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #cd4631;
+  border-radius: 12px;
+}
+.member1:hover .member__content {
+  left: 12px;
+  top: 12px;
+  transition: all 0.1s ease-in-out;
+}
+.founder__content {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #000;
+  border-radius: 12px;
+}
+.founder1:hover .founder__content {
+  left: 12px;
+  top: 12px;
+  transition: all 0.1s ease-in-out;
+}
+.search-posts {
+  z-index: 10;
+}
+.search-posts::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  background-color: #81adc8;
+  border-radius: 1rem;
+}
+.search-posts>input:hover .search-posts::before {
+  left: 20px;
+}
+html {
+  scroll-behavior: smooth;
 }

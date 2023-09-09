@@ -1,5 +1,5 @@
 export interface ReviewPropsType {
-  id: number;
+  id: string;
   name: string;
   title: string;
   imgUrl: string;

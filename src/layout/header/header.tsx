@@ -1,23 +1,8 @@
-import React from 'react';
-import logo from '../../assets/svgs/hero/logo.svg';
+import logo from '../../../public/svgs/hero/logo.svg';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import { Button } from '../../components/button/button';
-import axios from 'axios';
 
 export default function Header() {
-  const [speakers, setSpeakers] = useState([]);
-
-  const getSpeakers = async () => {
-    await axios.get('http://localhost:3000/speakers').then((response) => {
-      setSpeakers(response);
-    })
-  };
-
-  useEffect(() => {
-    getSpeakers();
-  }, []);
-
   return (
     <>
       <header className="py-[28px] w-full">
@@ -40,10 +25,12 @@ export default function Header() {
             </div>
           </div>
           <div className="flex items-center gap-[20px]">
-            <Button
-              text="RECENT EPISODES"
-              classes="hover:bg-black hover:text-white hidden md:inline-block"
-            />
+            <a href="#recent-episodes">
+              <Button
+                text="RECENT EPISODES"
+                classes="hover:bg-black hover:text-white hidden md:inline-block"
+              />
+            </a>
             <Button text="SUBSCRIBE" classes="bg-black text-white" />
           </div>
         </nav>

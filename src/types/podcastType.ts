@@ -1,5 +1,5 @@
 export interface podcastPropsType {
-  id: number;
+  id: string;
   title: string;
   imgUrl: string;
   socials: {
